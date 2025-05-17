@@ -1,7 +1,7 @@
 # app/fetch_books.py
 
 import requests
-from models.book import Book
+from app.models.book import Book
 
 
 def fetch_books_by_query(query, max_results=5):

@@ -32,10 +32,22 @@ class Book:
             "userRating": self.user_rating,
             "dateRead": self.date_read
         }
+    
+    @classmethod
+    def from_dict(cls, data): # Helps when loading from dictionary
+        book = cls(
+            title=data.get("title"),
+            authors=data.get("authors"),
+            description=data.get("description"),
+            categories=data.get("categories"),
+            rating=data.get("rating"),
+            pageCount=data.get("pageCount")
+        )
 
-    @staticmethod
-    def from_api(info):
-        return Book(
+
+    @classmethod
+    def from_api(cls, info):
+        return cls(
             title=info.get("title", "N/A"),
             authors=info.get("authors", ["Unknown"]),
             description=info.get("description", "No description."),
