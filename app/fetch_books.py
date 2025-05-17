@@ -1,6 +1,8 @@
 # app/fetch_books.py
 
 import requests
+from models.book import Book
+
 
 def fetch_books_by_query(query, max_results=5):
     url = "https://www.googleapis.com/books/v1/volumes"
@@ -17,14 +19,8 @@ def fetch_books_by_query(query, max_results=5):
 
         for item in data.get("items", []):
             info = item.get("volumeInfo", {})
-            books.append({
-                "title": info.get("title", "N/A"),
-                "authors": info.get("authors", ["Unknown"]),
-                "description": info.get("description", "No description."),
-                "categories": info.get("categories", []),
-                "rating": info.get("averageRating", "N/A"),
-                "pageCount": info.get("pageCount", "N/A")
-            })
+            book = Book.from_api(info)
+            books.append(book)
 
         return books
     else:
