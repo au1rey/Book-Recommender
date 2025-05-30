@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head><title>Book Reccommender</title></head>
+<body>
+    <h1>Book Search</h1>
+    <form method="post">
+        <input type="text", name="query" placeholder="Enter keyword">
+        <imput type="submit" value=""Search></imput>
+    </form>
+
+    {% if books %}
+        <h2>Results:</h2>
+        <ul>
+            {% for book in books %}
+                <li>
+                    <strong>{{ book.title }}</strong> by {{ book.authors| join(', ')}}<br>
+                    <em>{{book.description}}</em>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

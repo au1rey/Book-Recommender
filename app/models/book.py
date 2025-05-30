@@ -10,7 +10,7 @@ class Book:
         # Custom attributes
         self.is_read = False 
         self.want_to_read = False
-        self.user_rating = 0
+        self.user_rating = 0.0
         self.date_read = 0
 
     def mark_as_read(self):
