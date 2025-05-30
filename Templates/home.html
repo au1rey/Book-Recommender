@@ -1,23 +1,37 @@
 <!doctype html>
 <html>
-<head><title>Book Reccommender</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Reccommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
 <body>
-    <h1>Book Search</h1>
-    <form method="post">
-        <input type="text", name="query" placeholder="Enter keyword">
-        <imput type="submit" value=""Search></imput>
-    </form>
+    <div class="container">
+        <h1>Book Search</h1>
+        <form action="/" method="post" class="search-bar">
+            <input type="text", name="query" placeholder="Search for books..." required>
+            <button type="submit">🔍</button>
+        </form>
 
-    {% if books %}
-        <h2>Results:</h2>
-        <ul>
-            {% for book in books %}
-                <li>
-                    <strong>{{ book.title }}</strong> by {{ book.authors| join(', ')}}<br>
-                    <em>{{book.description}}</em>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        {% if books %}
+        <div class="book-list">
+            <h2>Results:</h2>
+            <ul>
+                {% for book in books %}
+                <div class="book-card">
+                    <h2>{{ book.title }}</h2>
+                    <p><strong>Authors:</strong> {{ book.authors | join(', ') }}</p>
+                    <p><strong>Categories:</strong> {{ book.categories | join(', ') }}</p>
+                    {% if book.rating != 'N/A' %}
+                        <p><strong>Rating:</strong> {{ book.rating }}</p>
+                    {% endif %}
+                    <p><strong>Pages:</strong> {{ book.page_count }}</p>
+                    <p>{{ book.description }}</p>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>
