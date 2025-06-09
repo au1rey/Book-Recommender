@@ -1,17 +1,31 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f6f8;
+    background: white;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9e6d51;
+    padding: 1rem 2rem;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+}
+
+.nav-left a,
+.nav-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-center {
+    flex-grow: 1;
+    text-align: center;
 }
 
 h1 {
@@ -19,10 +33,18 @@ h1 {
     color: #333;
 }
 
+.search-form {
+  display: inline-flex;
+  max-width: 500px;
+  width: 100%;
+}
+
 .search-bar {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+    width: 60%;
+    padding: 0.5em;
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
 }
 
 .search-bar input[type ="text"] {
@@ -36,22 +58,22 @@ h1 {
 }
 
 .search-bar input[type="text"]:focus {
-    border-color: #007BFF;
+    border-color: #9e6d51;
 }
 
 .search-bar button {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     margin-left: 0.5rem;
-    background-color: #007BFF;
+    background-color: #9e6d51;
     color: white;
     border: none;
-    border-radius: 999px;
+    border-radius: 0 25px 25px 0;
     cursor: pointer;
-    transition: background-color 3s;
+    font-size: 1rem;
 }
 
 .search-bar button:hover {
-    background-color: #0056b3;
+    background-color: #614231;
 }
 
 .book-list {
@@ -60,7 +82,7 @@ h1 {
 }
 
 .book-card {
-    background: #fafafa;
+    background: rgb(219, 219, 219);
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid #e0e0e0;

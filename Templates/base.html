@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}Read and Rec{% endblock%}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="{{ url_for('rec_me') }}">Rec Me!</a>
+    </div>
+    <div class="nav-center">
+        <form method="POST" action="{{ url_for('home') }}">
+            <input type="text" name="query" placeholder="Search books" class="search-bar"/>
+        </form>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('library') }}">Library</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+    </div>
+</nav>
+<div class="content">
+    {% block content%}{% endblock %}
+</div>
+</body>
+</html>

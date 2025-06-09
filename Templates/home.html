@@ -1,37 +1,25 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Book Reccommender</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
-</head>
-<body>
-    <div class="container">
-        <h1>Book Search</h1>
-        <form action="/" method="post" class="search-bar">
-            <input type="text", name="query" placeholder="Search for books..." required>
-            <button type="submit">Search</button>
-        </form>
-
-        {% if books %}
-        <div class="book-list">
-            <h2>Results:</h2>
-            <ul>
-                {% for book in books %}
-                <div class="book-card">
-                    <h2>{{ book.title }}</h2>
-                    <p><strong>Authors:</strong> {{ book.authors | join(', ') }}</p>
-                    <p><strong>Categories:</strong> {{ book.categories | join(', ') }}</p>
-                    {% if book.rating != 'N/A' %}
-                        <p><strong>Rating:</strong> {{ book.rating }}</p>
-                    {% endif %}
-                    <p><strong>Pages:</strong> {{ book.page_count }}</p>
-                    <p>{{ book.description }}</p>
-                </div>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Search Results</h1>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>
+                    <div class="book-card">
+                        <h2>{{ book.title }}</h2>
+                        <p><strong>Authors:</strong> {{ book.authors | join(', ') }}</p>
+                        <p><strong>Categories:</strong> {{ book.categories | join(', ') }}</p>
+                        {% if book.rating != 'N/A' %}
+                            <p><strong>Rating:</strong> {{ book.rating }}</p>
+                        {% endif %}
+                        <p><strong>Pages:</strong> {{ book.page_count }}</p>
+                        <p>{{ book.description }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books found. Try something else.</p>
+    {% endif %}
+{% endblock %}
+        

@@ -13,7 +13,7 @@ def home():
 
 @app.route('/base')
 def base():
-    render_template('basse.html')
+    render_template('base.html')
 
 @app.route('/recme')
 def rec_me():
@@ -25,7 +25,7 @@ def profile():
 
 @app.route('/library')
 def library():
-    rendertemplate("library.html")
+    render_template("library.html")
 
 @app.route('/shelf/<shelfname>')
 def display_shelf(shelf_name):
