@@ -12,7 +12,7 @@ body {
     background-color: #7dce94;
     padding: 1rem 2rem;
     color: white;
-    box-shadow: 0 2px 5px #3d3d3f
+    box-shadow: 0 2px 5px #3d3d3f;
 }
 
 .nav-left a,
@@ -90,6 +90,12 @@ h1 {
     box-shadow: 0 2px 4px #3d3d3f;
 }
 
+.book-thumbnail {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #3d3d3f;
+}
 .book-card h2 {
     margin: 0 0 0.5rem 0;
     color: #222;

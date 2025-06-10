@@ -1,12 +1,13 @@
 # Structured Book Class Using API data
 class Book:
-    def __init__(self, title, authors, description, categories, rating, page_count):
+    def __init__(self, title, authors, description, categories, rating, page_count, thumbnail=None):
         self.title = title
         self.authors = authors
         self.description = description
         self.categories = categories
         self.rating = rating
         self.page_count = page_count
+        self.thumbnail = thumbnail
         # Custom attributes
         self.is_read = False 
         self.want_to_read = False
@@ -53,5 +54,6 @@ class Book:
             description=info.get("description", "No description."),
             categories=info.get("categories", []),
             rating=info.get("averageRating", "N/A"),
-            page_count=info.get("pageCount", "N/A")
+            page_count=info.get("pageCount", "N/A"),
+            thumbnail=info.get("imageLinks", {}).get("thumbnail")
         )

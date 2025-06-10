@@ -6,6 +6,9 @@
             {% for book in books %}
                 <li>
                     <div class="book-card">
+                        {% if book.thumbnail %}
+                            <img src="{{ book.thumbnail }}" alt="Book cover for {{ book.title }}" class="book-thumbnail">
+                        {%endif%}
                         <h2>{{ book.title }}</h2>
                         <p><strong>Authors:</strong> {{ book.authors | join(', ') }}</p>
                         <p><strong>Categories:</strong> {{ book.categories | join(', ') }}</p>
