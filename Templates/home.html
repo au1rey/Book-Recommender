@@ -1,25 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Search Results</h1>
-    {% if books %}
-        <ul>
-            {% for book in books %}
-                <li>
-                    <div class="book-card">
-                        <h2>{{ book.title }}</h2>
-                        <p><strong>Authors:</strong> {{ book.authors | join(', ') }}</p>
-                        <p><strong>Categories:</strong> {{ book.categories | join(', ') }}</p>
-                        {% if book.rating != 'N/A' %}
-                            <p><strong>Rating:</strong> {{ book.rating }}</p>
-                        {% endif %}
-                        <p><strong>Pages:</strong> {{ book.page_count }}</p>
-                        <p>{{ book.description }}</p>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No books found. Try something else.</p>
-    {% endif %}
+    <h1>Welcome to Read and Rec</h1>
 {% endblock %}
         

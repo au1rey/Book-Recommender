@@ -3,29 +3,33 @@ from app.fetch_books import fetch_books_by_query
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/')
 def home():
+    return render_template('home.html')
+
+@app.route('/search', methods = ['GET', 'POST'])
+def search():
     books = []
     if request.method == 'POST':
         query = request.form['query']
         books = fetch_books_by_query(query)
-    return render_template('home.html', books=books)
+    return render_template('search.html', books=books)
 
 @app.route('/base')
 def base():
-    render_template('base.html')
+    return render_template('base.html')
 
 @app.route('/recme')
 def rec_me():
-    render_template('recme.html')
+    return render_template('recme.html')
 
 @app.route('/profile')
 def profile():
-    render_template('profile.html')
+    return render_template('profile.html')
 
 @app.route('/library')
 def library():
-    render_template("library.html")
+    return render_template("library.html")
 
 @app.route('/shelf/<shelfname>')
 def display_shelf(shelf_name):

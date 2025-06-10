@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: white;
+    background: #f6f5f3;
     margin: 0;
     padding: 0;
 }
@@ -9,18 +9,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #9e6d51;
+    background-color: #7dce94;
     padding: 1rem 2rem;
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 2px 5px #3d3d3f
 }
 
 .nav-left a,
 .nav-right a {
     margin-left: 20px;
-    text-decoration: none;
-    color: #333;
+    text-decoration:none;
+    color: #3d3d3f;
     font-weight: 500;
+    font-size: large;
 }
 
 .nav-center {
@@ -30,7 +31,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #3d3d3f;
 }
 
 .search-form {
@@ -58,13 +59,13 @@ h1 {
 }
 
 .search-bar input[type="text"]:focus {
-    border-color: #9e6d51;
+    border-color: #7dce94;
 }
 
 .search-bar button {
     padding: 0.5rem 1rem;
     margin-left: 0.5rem;
-    background-color: #9e6d51;
+    background-color: #7dce94;
     color: white;
     border: none;
     border-radius: 0 25px 25px 0;
@@ -73,7 +74,7 @@ h1 {
 }
 
 .search-bar button:hover {
-    background-color: #614231;
+    background-color: #7dce94;
 }
 
 .book-list {
@@ -86,7 +87,7 @@ h1 {
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px #3d3d3f;
 }
 
 .book-card h2 {
