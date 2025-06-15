@@ -13,18 +13,23 @@
         <p><strong>Pages:</strong>{{book.page_count}}</p>
         <p>{{ book.description}}</p>
 
-        <button onclick="toggleShelfMenu()">Add to Library</button>
+        <button onclick="toggleShelfMenu()" class="add-btn">Add to Library</button>
 
-        <div id="shelfMenu" class="shelf-popup" style="display: none;">
+        <div id="shelfMenu" class="shelf-menu">
             <form id="addToShelfForm">
                 {% for shelf in shelves %}
-                    <button type="button" onclick="addToShelf('{{ shelf }}')">{{ shelf }}</button><br>
+                    <button type="button" class="shelf-btn" onclick="addToShelf('{{ shelf }}')">{{ shelf }}</button><br>
                 {% endfor %}
             </form>
         </div>
-        <div id="messageBox" class="success-message" style="display: none;"></div>
+        <div id="messageModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span id="modalMessage"></span>
+                <button onclick="closeModal()">OK</button>
+            </div>
+        </div>
     </div>
-    
+
     <script>
     function toggleShelfMenu(){
         const menu = document.getElementById("shelfMenu");
@@ -40,11 +45,14 @@
         .then(res => res.json())
         // Message Box Detail
         .then(data => {
-            const msg=document.getElementById("messageBox");
-            msg.innerText = `Sucessfully added to "${shelfName}"`;
-            msg.style.display = "block";
-            setTimeout(() => msg.style.display= "none", 400);
+             const modal = document.getElementById("messageModal");
+            const messageSpan = document.getElementById("modalMessage");
+            messageSpan.innerText = `Successfully added to "${shelfName}"`;
+            modal.style.display = "flex";
         });
+    }
+    function closeModal(){
+    document.getElementById("messageModal").style.display = "none";
     }
     </script>
 {% endblock %}

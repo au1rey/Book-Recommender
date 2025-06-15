@@ -53,7 +53,9 @@ def book_page(book_id):
     book = book_map.get(book_id) 
     if not book:
         return "Book not found", 404
-    return render_template('book_page.html', book=book)
+    # Temp shelves
+    shelves = ["Read", "Currently Reading", "Want to Read"]
+    return render_template('book_page.html', book=book, book_id=book_id, shelves=shelves)
 
 @app.route('/add-to-shelf', methods=['POST'])
 def add_to_shelf():
