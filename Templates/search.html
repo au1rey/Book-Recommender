@@ -9,8 +9,12 @@
                         {% if book.thumbnail %}
                             <img src="{{ book.thumbnail }}" alt="Book cover for {{ book.title }}" class="book-thumbnail">
                         {%endif%}
-                        <h2>{{ book.title }}</h2>
-                        <p><strong>Authors:</strong> {{ book.authors | join(', ') }}</p>
+                        <h2><a href="{{ url_for('book_page', book_id=book.id) }}">{{ book.title }}</a></h2>
+                        {% if book.authors|length > 1 %}
+                            <p><strong>Authors:</strong>{{ book.authors | join(', ')}}</p>
+                        {% else %}
+                            <p><strong>Author:</strong>{{book.authors[0]}}</p>
+                        {% endif %}
                         <p><strong>Categories:</strong> {{ book.categories | join(', ') }}</p>
                         {% if book.rating != 'N/A' %}
                             <p><strong>Rating:</strong> {{ book.rating }}</p>

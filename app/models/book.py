@@ -1,6 +1,6 @@
 # Structured Book Class Using API data
 class Book:
-    def __init__(self, title, authors, description, categories, rating, page_count, thumbnail=None):
+    def __init__(self, title, authors, description, categories, rating, page_count, thumbnail=None, id=None):
         self.title = title
         self.authors = authors
         self.description = description
@@ -8,6 +8,7 @@ class Book:
         self.rating = rating
         self.page_count = page_count
         self.thumbnail = thumbnail
+        self.id = id
         # Custom attributes
         self.is_read = False 
         self.want_to_read = False
@@ -22,6 +23,7 @@ class Book:
     
     def to_dict(self):
         return {
+            "id": self.id,
             "title": self.title,
             "authors": self.authors,
             "description": self.description,
@@ -35,8 +37,9 @@ class Book:
         }
     
     @classmethod
-    def from_dict(cls, data): # Helps when loading from dictionary
+    def from_dict(cls, data): 
         book = cls(
+            id=data.get("id"),
             title=data.get("title"),
             authors=data.get("authors"),
             description=data.get("description"),
@@ -47,8 +50,9 @@ class Book:
 
 
     @classmethod
-    def from_api(cls, info):
+    def from_api(cls, info, book_id=None):
         return cls(
+            id=book_id,
             title=info.get("title", "N/A"),
             authors=info.get("authors", ["Unknown"]),
             description=info.get("description", "No description."),

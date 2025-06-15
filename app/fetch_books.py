@@ -19,7 +19,7 @@ def fetch_books_by_query(query, max_results=5):
 
         for item in data.get("items", []):
             info = item.get("volumeInfo", {})
-            book = Book.from_api(info)
+            book = Book.from_api(info, book_id=item.get("id"))
             books.append(book)
 
         return books

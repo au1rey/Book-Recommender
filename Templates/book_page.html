@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="book_page">
+        <h1>{{book.title}}</h1>
+        <img src="{{book.thumbnail}}" alt="Book Cover">
+        {% if book.authors|length > 1 %}
+            <p><strong>Authors:</strong>{{ book.authors|join(', ')}}</p>
+        {% else %}
+            <p><strong>Author:</strong>{{book.authors[0]}}</p>
+        {% endif %}
+        <p><strong>Categories:</strong>{{book.categories|join(', ')}}</p>
+        <p><strong>Rating:</strong>{{book.rating}}</p>
+        <p><strong>Pages:</strong>{{book.page_count}}</p>
+        <p>{{ book.description}}</p>
+
+        <button onclick="toggleShelfMenu()">Add to Library</button>
+
+        <div id="shelfMenu" class="shelf-popup" style="display: none;">
+            <form id="addToShelfForm">
+                {% for shelf in shelves %}
+                    <button type="button" onclick="addToShelf('{{ shelf }}')">{{ shelf }}</button><br>
+                {% endfor %}
+            </form>
+        </div>
+        <div id="messageBox" class="success-message" style="display: none;"></div>
+    </div>
+    
+    <script>
+    function toggleShelfMenu(){
+        const menu = document.getElementById("shelfMenu");
+        menu.style.display = (menu.style.display === 'none')? "block" : "none";
+    }
+    function addToShelf(shelfName){
+        const bookId = "{{ book_id }}";
+        fetch("/add-to-shelf", {
+            method: "POST", 
+            headers: {"Content-Type" : "application/json"}, 
+            body: JSON.stringify({shelf: shelfName, book_id: bookId})
+        })
+        .then(res => res.json())
+        // Message Box Detail
+        .then(data => {
+            const msg=document.getElementById("messageBox");
+            msg.innerText = `Sucessfully added to "${shelfName}"`;
+            msg.style.display = "block";
+            setTimeout(() => msg.style.display= "none", 400);
+        });
+    }
+    </script>
+{% endblock %}
