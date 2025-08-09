@@ -3,6 +3,7 @@ from app.fetch_books import fetch_books_by_query
 from app.models.book import Book
 from flask import jsonify
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -35,7 +36,52 @@ def profile():
 
 @app.route('/library')
 def library():
-    return render_template("library.html")
+    shelves = load_shelves()  # load shelves from JSON
+    return render_template("library.html", shelves=shelves)
+
+# Shelf initialization 
+SHELVES_FILE = 'shelves.json'
+
+DEFAULT_SHELVES = [
+    {"name": "Read", "books": []},
+    {"name": "Currently Reading", "books": []},
+    {"name": "Want to Read", "books": []}
+]
+
+def load_shelves():
+    try:
+        with open(SHELVES_FILE, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
+def save_shelves(shelves):
+    with open(SHELVES_FILE, 'w') as f:
+        json.dump(shelves, f, indent=4)
+
+@app.route('/add-shelf', methods=['POST'])
+def add_shelf():
+    data = request.get_json()
+    new_shelf_name = data.get('shelf_name')
+
+    print(f"Adding new shelf: {new_shelf_name}")
+    shelves = load_shelves()
+    shelves.append({'name': new_shelf_name, 'books': []})
+
+    save_shelves(shelves)
+
+    return jsonify({"success": True, "shelf_name": new_shelf_name})
+
+@app.route('/delete-shelf', methods=['POST'])
+def delete_shelf():
+    data = request.get_json()
+    shelf_name = data.get('shelf_name')
+    
+    shelves = load_shelves()
+    shelves = [s for s in shelves if s['name'].lower() != shelf_name.lower()]
+    save_shelves(shelves)
+    
+    return jsonify({"success": True, "deleted_shelf": shelf_name})
 
 @app.route('/shelf/<shelfname>')
 def display_shelf(shelf_name):

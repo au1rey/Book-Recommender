@@ -1,1 +1,130 @@
 {% extends 'base.html' %}
+{% block content %}
+  <!-- Container for all shelves -->
+  <div class="Library-Container">
+    <div class="shelf-card add-shelf" id="addShelfBtn">
+      <span class="plus-icon">+</span>
+      <p>Add Shelf</p>
+    </div>
+    <div class="shelf-card delete-shelf" id="deleteShelfBtn" onclick="toggleDeleteMode()">
+      <span class="x-icon">×</span>
+      <p>Delete Shelf</p>
+    </div>
+    {% for shelf in shelves %}
+      <div class="shelf-card">
+        <h3>{{ shelf.name }}</h3>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Add Shelf Modal -->
+  <div id="addShelfModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>Create New Shelf</h2>
+      <input type="text" id="shelfNameInput" placeholder="Shelf name">
+      <div class="modal-content button">
+        <button id="saveShelfBtn">Create</button>
+        <button id="closeModal">Cancel</button>
+      </div>
+    </div>
+  </div>
+<!-- JS -->
+<script>
+    const modal = document.getElementById("addShelfModal");
+    const addBtn = document.getElementById("addShelfBtn");
+    const closeModal = document.getElementById("closeModal");
+    const saveShelfBtn = document.getElementById("saveShelfBtn");
+
+    // On click events
+    addBtn.onclick = function() {
+        console.log('Add Shelf button clicked'); // TEST: this button hasn't been working
+        modal.style.display = "flex"; 
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    // Post the data
+    saveShelfBtn.onclick = function() {
+        createShelf();
+    }
+
+    function createShelf() {
+        const shelfName = document.getElementById("shelfNameInput").value.trim();
+        if (!shelfName) return alert("Shelf name cannot be empty");
+
+        fetch("/add-shelf", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({shelf_name: shelfName})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success){
+            alert(`Shelf "${data.shelf_name}" added successfully!`);
+            modal.style.display = "none";  // Hide the modal after success
+            location.reload();
+            }
+        })
+        .catch(err => console.error(err));
+    }
+    // DELETE MODE
+    let deleteMode = false;
+
+    function toggleDeleteMode() {
+        deleteMode = !deleteMode;
+
+        // Change the delete button appearance when active
+        const deleteBtn = document.getElementById('deleteShelfBtn');
+        if(deleteMode) {
+            deleteBtn.style.backgroundColor = '#e74c3c';
+            deleteBtn.style.color = 'white';
+            deleteBtn.querySelector('p').innerText = 'Cancel Delete';
+        } else {
+            deleteBtn.style.backgroundColor = 'transparent';
+            deleteBtn.style.color = '#e74c3c';
+            deleteBtn.querySelector('p').innerText = 'Delete Shelf';
+        }
+
+        // Add a CSS class to shelves to visually indicate deletable mode
+        document.querySelectorAll('.shelf-card').forEach(card => {
+            if(!card.classList.contains('add-shelf') && !card.classList.contains('delete-shelf')){
+                if(deleteMode) {
+                    card.classList.add('deletable');
+                } else {
+                    card.classList.remove('deletable');
+                }
+            }
+        });
+    }
+    document.querySelectorAll('.shelf-card').forEach(card => {
+        card.addEventListener('click', () => {
+            if(deleteMode && !card.classList.contains('add-shelf') && !card.classList.contains('delete-shelf')){
+                const shelfName = card.querySelector('h3').innerText;
+                if(confirm(`Delete shelf "${shelfName}"? This action cannot be undone.`)){
+                    fetch('/delete-shelf', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({shelf_name: shelfName})
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.success){
+                            alert(`Shelf "${shelfName}" deleted.`);
+                            location.reload();
+                        } else {
+                            alert("Error deleting shelf.");
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
