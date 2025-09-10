@@ -1,15 +1,94 @@
 [
     {
         "name": "Want to Read",
-        "books": []
+        "books": [
+            {
+                "id": "xhF50EvpCZ0C",
+                "title": "Assassin's Apprentice",
+                "authors": [
+                    "Robin Hobb"
+                ],
+                "description": "Young Fitz is the bastard son of the noble Prince Chivalry, raised in the shadow of the royal court by his father's gruff stableman. He is treated as an outcast by all the royalty except the devious King Shrewd, who has him secretly tutored in the arts of the assassin. For in Fitz's blood runs the magic Skill\u2014and the darker knowledge of a child raised with the stable hounds and rejected by his family.<br> <br> As barbarous raiders ravage the coasts, Fitz is growing to manhood. Soon he will face his first dangerous, soul-shattering mission. And though some regard him as a threat to the throne, he may just be the key to the survival of the kingdom.<br> <br> <b>Praise for Robin Hobb and <i>Assassin's Apprentice</i></b><br> <br> \u201cFantasy as it ought to be written . . . Robin Hobb's books are diamonds in a sea of zircons.\u201d<b>\u2014George R. R. Martin </b><br> <br> \u201cA gleaming debut in the crowded field of epic fantasies . . . a delightful take on the powers and politics behind the throne.\u201d<b>\u2014<i>Publishers Weekly</i></b><br> <br> \u201cThis is the kind of book you fall into, and start reading slower as you get to the end, because you don't want it to be over.\u201d<b>\u2014Steven Brust</b>",
+                "categories": [
+                    "Fiction / Fantasy / General",
+                    "Fiction / Fantasy / Epic"
+                ],
+                "rating": 5,
+                "pageCount": 435,
+                "isRead": false,
+                "wantToRead": false,
+                "userRating": 0.0,
+                "dateRead": 0
+            },
+            {
+                "id": "dZNonS5wCOwC",
+                "title": "Royal Assassin (The Illustrated Edition)",
+                "authors": [
+                    "Robin Hobb"
+                ],
+                "description": "<b>\u201cFantasy as it ought to be written . . . Robin Hobb\u2019s books are diamonds in a sea of zircons.\u201d\u2014George R. R. Martin </b><br><br>Fitz has barely survived his first hazardous mission as king\u2019s assassin. Battered and bitter, he vows to abandon his oath to King Shrewd, remaining in the distant mountains. But love and events of terrible urgency draw him back to the court at Buckkeep, and into the deadly intrigues of the royal family.<br> \u00a0<br> Renewing their vicious attacks on the coast, the Red-Ship Raiders leave burned-out villages and demented victims in their wake. The kingdom is also under assault from within, as treachery threatens the throne of the ailing king. In this time of great danger, the fate of the kingdom may rest in Fitz\u2019s hands\u2014and his role in its salvation may require the ultimate sacrifice.<br><br>BONUS: This edition includes an excerpt from Robin Hobb's <i>Assassin's Quest</i>.<br> <b> </b><br> <b>Praise for Robin Hobb and <i>Royal Assassin</i></b><br> \u00a0<br> \u201c[Robin] Hobb continues to revitalize a genre that often seems all too generic, making it new in ways that range from the subtle to the shocking.\u201d<b>\u2014<i>Locus</i></b><br> \u00a0<br> \u201c[<i>Royal Assassin</i>] reaches astonishing new heights. . . . The Farseer saga is destined for greatness\u2014a must-read for every devotee of epic fantasy.\u201d<b>\u2014<i>Sense of Wonder</i></b>",
+                "categories": [
+                    "Fiction / Fantasy / Epic",
+                    "Fiction / Fantasy / Arthurian",
+                    "Fiction / Fantasy / Action & Adventure"
+                ],
+                "rating": 3,
+                "pageCount": 688,
+                "isRead": false,
+                "thumbnail": "http://books.google.com/books/content?id=dZNonS5wCOwC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71K_jAYD8nZKkv4vn2uSHKSU_afdYk20Am97hWISPduD4Ep-UJiB5sqCpAkfaxe7-EqmOEpqNhd-BzcryoHVtc0IjXJb5GbMBaeKjvqipxX2CdQUJbcn6Edtl_L-ll1gBPqFNQB&source=gbs_api",
+                "wantToRead": false,
+                "userRating": 0.0,
+                "dateRead": 0
+            }
+        ]
     },
     {
         "name": "Read",
-        "books": []
+        "books": [
+            {
+                "id": "xhF50EvpCZ0C",
+                "title": "Assassin's Apprentice",
+                "authors": [
+                    "Robin Hobb"
+                ],
+                "description": "Young Fitz is the bastard son of the noble Prince Chivalry, raised in the shadow of the royal court by his father's gruff stableman. He is treated as an outcast by all the royalty except the devious King Shrewd, who has him secretly tutored in the arts of the assassin. For in Fitz's blood runs the magic Skill\u2014and the darker knowledge of a child raised with the stable hounds and rejected by his family.<br> <br> As barbarous raiders ravage the coasts, Fitz is growing to manhood. Soon he will face his first dangerous, soul-shattering mission. And though some regard him as a threat to the throne, he may just be the key to the survival of the kingdom.<br> <br> <b>Praise for Robin Hobb and <i>Assassin's Apprentice</i></b><br> <br> \u201cFantasy as it ought to be written . . . Robin Hobb's books are diamonds in a sea of zircons.\u201d<b>\u2014George R. R. Martin </b><br> <br> \u201cA gleaming debut in the crowded field of epic fantasies . . . a delightful take on the powers and politics behind the throne.\u201d<b>\u2014<i>Publishers Weekly</i></b><br> <br> \u201cThis is the kind of book you fall into, and start reading slower as you get to the end, because you don't want it to be over.\u201d<b>\u2014Steven Brust</b>",
+                "categories": [
+                    "Fiction / Fantasy / General",
+                    "Fiction / Fantasy / Epic"
+                ],
+                "rating": 5,
+                "pageCount": 435,
+                "isRead": false,
+                "wantToRead": false,
+                "userRating": 0.0,
+                "dateRead": 0
+            }
+        ]
     },
     {
         "name": "Tbr",
-        "books": []
+        "books": [
+            {
+                "id": "dZNonS5wCOwC",
+                "title": "Royal Assassin (The Illustrated Edition)",
+                "authors": [
+                    "Robin Hobb"
+                ],
+                "description": "<b>\u201cFantasy as it ought to be written . . . Robin Hobb\u2019s books are diamonds in a sea of zircons.\u201d\u2014George R. R. Martin </b><br><br>Fitz has barely survived his first hazardous mission as king\u2019s assassin. Battered and bitter, he vows to abandon his oath to King Shrewd, remaining in the distant mountains. But love and events of terrible urgency draw him back to the court at Buckkeep, and into the deadly intrigues of the royal family.<br> \u00a0<br> Renewing their vicious attacks on the coast, the Red-Ship Raiders leave burned-out villages and demented victims in their wake. The kingdom is also under assault from within, as treachery threatens the throne of the ailing king. In this time of great danger, the fate of the kingdom may rest in Fitz\u2019s hands\u2014and his role in its salvation may require the ultimate sacrifice.<br><br>BONUS: This edition includes an excerpt from Robin Hobb's <i>Assassin's Quest</i>.<br> <b> </b><br> <b>Praise for Robin Hobb and <i>Royal Assassin</i></b><br> \u00a0<br> \u201c[Robin] Hobb continues to revitalize a genre that often seems all too generic, making it new in ways that range from the subtle to the shocking.\u201d<b>\u2014<i>Locus</i></b><br> \u00a0<br> \u201c[<i>Royal Assassin</i>] reaches astonishing new heights. . . . The Farseer saga is destined for greatness\u2014a must-read for every devotee of epic fantasy.\u201d<b>\u2014<i>Sense of Wonder</i></b>",
+                "categories": [
+                    "Fiction / Fantasy / Epic",
+                    "Fiction / Fantasy / Arthurian",
+                    "Fiction / Fantasy / Action & Adventure"
+                ],
+                "rating": 3,
+                "pageCount": 688,
+                "isRead": false,
+                "thumbnail": "http://books.google.com/books/content?id=dZNonS5wCOwC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72LhKA5Jhk6s7V7_UCVQbqvgAECPQkWBfDXa_HHNZP-qp2-6BndQ73WU223te9Jnj3iTe5QCRUr3U4-97aJYGgOUJdErGioPHiYgZbWGobIuh-nONxSZoUiTyMQ-55a4kDLAdJ1&source=gbs_api",
+                "wantToRead": false,
+                "userRating": 0.0,
+                "dateRead": 0
+            }
+        ]
     },
     {
         "name": "soon",
@@ -17,14 +96,6 @@
     },
     {
         "name": "meow",
-        "books": []
-    },
-    {
-        "name": "WHY ARE YOU SO SMALL",
-        "books": []
-    },
-    {
-        "name": "IS THIS TONE SMALL TOO..",
         "books": []
     }
 ]

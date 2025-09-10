@@ -2,4 +2,24 @@
 {%block content%}
     <h1>RecMe Generator!</h1>
         <p>Your AI powered Librarian</p>
+        {% if book %}
+            <div class="recommend-card">
+                <img src="{{ book.thumbnail }}" alt="{{ book.title }}">
+                    <div class="book-info">
+                        <h2>{{ book.title }}</h2>
+                        <p><strong>By:</strong> {{ book.authors|join(", ") }}</p>
+                        <p>{{ book.description }}</p>
+                        <div class="actions">
+                            <form method="post" action="{{ url_for('add_to_library', book_id=book.id) }}">
+                                <button type="submit">+ Add to Library</button>
+                            </form>
+                            <form method="post" action="/new_rec">  
+                                <button type="submit">Skip</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        {% else %}
+            <p>Search books and add them to your library to get started.</p>
+        {% endif %}
 {% endblock %}

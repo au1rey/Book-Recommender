@@ -1,12 +1,12 @@
 # Structured Book Class Using API data
 class Book:
-    def __init__(self, title, authors, description, categories, rating, page_count, thumbnail=None, id=None):
+    def __init__(self, title, authors, description, categories, rating, pageCount, thumbnail=None, id=None):
         self.title = title
         self.authors = authors
         self.description = description
         self.categories = categories
         self.rating = rating
-        self.page_count = page_count
+        self.pageCount = pageCount
         self.thumbnail = thumbnail
         self.id = id
         # Custom attributes
@@ -29,8 +29,9 @@ class Book:
             "description": self.description,
             "categories": self.categories,
             "rating": self.rating,
-            "pageCount": self.page_count,
+            "pageCount": self.pageCount,
             "isRead": self.is_read,
+            "thumbnail": self.thumbnail,
             "wantToRead": self.want_to_read,
             "userRating": self.user_rating,
             "dateRead": self.date_read
@@ -38,13 +39,14 @@ class Book:
     
     @classmethod
     def from_dict(cls, data): 
-        book = cls(
+        return cls(
             id=data.get("id"),
             title=data.get("title"),
             authors=data.get("authors"),
             description=data.get("description"),
             categories=data.get("categories"),
             rating=data.get("rating"),
+            thumbnail=data.get("thumbnail"),
             pageCount=data.get("pageCount")
         )
 
@@ -58,6 +60,6 @@ class Book:
             description=info.get("description", "No description."),
             categories=info.get("categories", []),
             rating=info.get("averageRating", "N/A"),
-            page_count=info.get("pageCount", "N/A"),
+            pageCount=info.get("pageCount", "N/A"),
             thumbnail=info.get("imageLinks", {}).get("thumbnail")
         )

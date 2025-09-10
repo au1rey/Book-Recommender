@@ -1,1 +1,18 @@
 {% extends 'base.html' %}
+{% block content %}
+    <h1>{{ shelf_name }} Shelf</h1>
+    {% if books %}
+        <ul class="shelf-books">
+            {% for book in books %}
+                <li class="book-card">
+                    {% if book.thumbnail %}
+                        <img src="{{ book.thumbnail }}" alt="Book cover for {{ book.title }}" class="book-thumbnail">
+                    {% endif %}
+                    <h2><a href="{{ url_for('book_page', book_id=book.id) }}">{{ book.title }}</a></h2> 
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books in this shelf yet. Go add some!</p>
+    {% endif %}
+{% endblock %}

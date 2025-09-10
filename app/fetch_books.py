@@ -1,5 +1,4 @@
 # app/fetch_books.py
-
 import requests
 from app.models.book import Book
 
@@ -26,3 +25,15 @@ def fetch_books_by_query(query, max_results=5):
     else:
         print("Error:", response.status_code)
         return []
+
+def get_book_by_id(book_id):
+    url = f"https://www.googleapis.com/books/v1/volumes/{book_id}"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        info = data.get("volumeInfo", {})
+        return Book.from_api(info, book_id=data.get("id"))
+    else:
+        print("Error:", response.status_code)
+        return None

@@ -11,7 +11,12 @@
       <p>Delete Shelf</p>
     </div>
     {% for shelf in shelves %}
-      <div class="shelf-card">
+      <div class="shelf-card" onclick="location.href='/shelf/{{ shelf.name }}'">
+        {% if shelf.books %}
+          <img src="{{ shelf.books[0].thumbnail }}" alt="Shelf cover for {{ shelf.name }}" class="shelf-thumbnail">
+        {% else %}
+          <div class="empty-shelf-placeholder">No Books</div>
+        {% endif %}
         <h3>{{ shelf.name }}</h3>
       </div>
     {% endfor %}
